@@ -1,26 +1,25 @@
 const intro =
 "Year 2077. " +
-"The supercomputer NEXUS AI has taken " +
-"control of the Astra-9 space station. " +
+"The supercomputer NEXUS AI has taken control of Astra-9. " +
 "You are Agent K, humanity's last hope. " +
-"Collect the energy cores, defeat NEXUS, " +
-"and escape before the reactor explodes.";
+"Collect the energy cores, defeat NEXUS AI, and save humanity.";
 
 let i = 0;
 
 function typeStory(){
 
     const box =
-    document.getElementById(
-        "story"
-    );
+        document.getElementById(
+            "story"
+        );
 
-    if(!box) return;
+    if(!box)
+        return;
 
     if(i < intro.length){
 
         box.innerHTML +=
-        intro.charAt(i);
+            intro.charAt(i);
 
         i++;
 
@@ -31,10 +30,20 @@ function typeStory(){
     }
 }
 
-typeStory();
+window.onload =
+function(){
+
+    if(
+        document.getElementById(
+            "story"
+        )
+    ){
+        typeStory();
+    }
+};
 
 function startGame(){
 
     window.location.href =
-    "level1.html";
+        "level1.html";
 }
