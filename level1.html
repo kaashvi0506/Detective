@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER ESCAPE 2077 - Level 1</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.hud{
+    display:flex;
+    justify-content:space-around;
+    padding:20px;
+    font-size:1.4rem;
+    color:#00ffff;
+}
+
+.level{
+    text-align:center;
+    padding-top:20px;
+}
+
+.gameArea{
+    position:relative;
+    width:100%;
+    height:70vh;
+    overflow:hidden;
+}
+
+.core{
+    position:absolute;
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:40px;
+
+    cursor:pointer;
+
+    background:
+    radial-gradient(
+        circle,
+        #ffd700,
+        #ff00ff
+    );
+
+    box-shadow:
+        0 0 20px #ff00ff,
+        0 0 40px #00ffff;
+
+    animation:
+        float 2s infinite alternate,
+        pulse 1s infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-20px);
+    }
+}
+
+@keyframes pulse{
+    from{
+        box-shadow:
+            0 0 20px #ff00ff;
+    }
+
+    to{
+        box-shadow:
+            0 0 50px #00ffff;
+    }
+}
+
+.portal{
+    position:fixed;
+
+    bottom:80px;
+    right:30px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+
+    cursor:pointer;
+
+    background:
+    radial-gradient(
+        circle,
+        cyan,
+        blue
+    );
+
+    box-shadow:
+        0 0 40px cyan;
+
+    animation:
+        portal 1s infinite;
+}
+
+@keyframes portal{
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.15);
+    }
+}
+
+.message{
+    margin-top:20px;
+    color:#ffd700;
+    font-size:1.2rem;
+}
+
+@media(max-width:700px){
+
+    .core{
+        width:60px;
+        height:60px;
+        font-size:30px;
+    }
+
+    .portal{
+        width:90px;
+        height:90px;
+        font-size:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="hud">
+
+    <div>
+        ⏳ Time:
+        <span id="timer">
+            90
+        </span>
+    </div>
+
+    <div>
+        ⚡ Energy:
+        <span id="score">
+            0
+        </span>/5
+    </div>
+
+</div>
+
+<div class="level">
+
+    <h1>
+        LEVEL 1
+    </h1>
+
+    <h2>
+        Energy Chamber
+    </h2>
+
+    <p class="message">
+        Collect all energy cores.
+    </p>
+
+</div>
+
+<div class="gameArea">
+
+    <div class="core">⚡</div>
+    <div class="core">⚡</div>
+    <div class="core">⚡</div>
+    <div class="core">⚡</div>
+    <div class="core">⚡</div>
+
+</div>
+
+<div class="portal"
+     id="portal"
+     onclick="nextLevel()">
+
+     🚪
+
+</div>
+
+<footer>
+Created by Kaashvi Agarwal
+</footer>
+
+<script>
+let score=0;
+let time=90;
+
+const cores=
+document.querySelectorAll(
+    ".core"
+);
+
+cores.forEach(core=>{
+
+    core.style.left=
+        Math.random()*80+"%";
+
+    core.style.top=
+        Math.random()*70+"%";
+
+    core.onclick=
+    function(){
+
+        this.style.display=
+            "none";
+
+        score++;
+
+        document
+        .getElementById(
+            "score"
+        )
+        .innerHTML=
+            score;
+
+        if(score===5){
+
+            alert(
+                "Portal Activated!"
+            );
+
+            document
+            .getElementById(
+                "portal"
+            )
+            .style.display=
+                "flex";
+        }
+    };
+});
+
+function countdown(){
+
+    document
+    .getElementById(
+        "timer"
+    )
+    .innerHTML=
+        time;
+
+    time--;
+
+    if(time<0){
+
+        window.location.href=
+            "gameover.html";
+    }
+}
+
+setInterval(
+    countdown,
+    1000
+);
+
+function nextLevel(){
+
+    window.location.href=
+        "level2.html";
+}
+</script>
+
+</body>
+  </html>
