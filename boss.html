@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>
+NEXUS AI
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<style>
+body{
+    text-align:center;
+}
+
+.container{
+    padding:30px;
+}
+
+.ai{
+
+    width:220px;
+    height:220px;
+
+    margin:30px auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:100px;
+
+    background:
+    radial-gradient(
+        circle,
+        #00ffff,
+        #000066
+    );
+
+    box-shadow:
+        0 0 40px cyan,
+        0 0 80px blue;
+
+    animation:
+        pulse 1s
+        infinite
+        alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:
+        scale(1);
+    }
+
+    to{
+        transform:
+        scale(1.1);
+    }
+}
+
+.question{
+
+    background:#111;
+
+    border:2px solid gold;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    max-width:600px;
+
+    margin:20px auto;
+
+    box-shadow:
+        0 0 30px gold;
+}
+
+input{
+
+    width:250px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    text-align:center;
+}
+
+button{
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+<h1>
+FINAL BOSS
+</h1>
+
+<h2>
+NEXUS AI
+</h2>
+
+<div class="ai">
+🤖
+</div>
+
+<p>
+Human...
+you cannot defeat me.
+Answer my questions.
+</p>
+
+<div class="question">
+
+<h2>
+2 4 8 16 ?
+</h2>
+
+<input
+id="q1">
+
+</div>
+
+<div class="question">
+
+<h2>
+What has keys
+but no locks?
+</h2>
+
+<input
+id="q2">
+
+</div>
+
+<div class="question">
+
+<h2>
+Who created
+Cyber Escape 2077?
+</h2>
+
+<input
+id="q3">
+
+</div>
+
+<button
+onclick="finish()">
+
+DEFEAT NEXUS
+
+</button>
+
+</div>
+
+<footer>
+Created by
+Kaashvi Agarwal
+</footer>
+
+<script>
+function finish(){
+
+    const q1=
+    document
+    .getElementById(
+    "q1"
+    )
+    .value;
+
+    const q2=
+    document
+    .getElementById(
+    "q2"
+    )
+    .value
+    .toLowerCase();
+
+    const q3=
+    document
+    .getElementById(
+    "q3"
+    )
+    .value
+    .toLowerCase();
+
+    if(
+        q1=="32"
+        &&
+        q2==
+        "keyboard"
+        &&
+        q3==
+        "kaashvi agarwal"
+    ){
+
+        alert(
+        "NEXUS AI DEFEATED!"
+        );
+
+        window.location.href=
+        "victory.html";
+    }
+
+    else{
+
+        alert(
+        "NEXUS AI WINS!"
+        );
+
+        window.location.href=
+        "gameover.html";
+    }
+}
+</script>
+
+</body>
+</html>
