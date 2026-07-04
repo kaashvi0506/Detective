@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER ESCAPE 2077 - Level 2</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    text-align:center;
+}
+
+.ai{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:90px;
+
+    background:
+    radial-gradient(
+        circle,
+        #00ffff,
+        #000066
+    );
+
+    box-shadow:
+        0 0 40px cyan,
+        0 0 80px blue;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.1);
+    }
+}
+
+.dialogue{
+    max-width:700px;
+    margin:30px;
+    line-height:1.8;
+    color:#00ffff;
+}
+
+.puzzle{
+    background:#111;
+
+    border:2px solid gold;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    margin:30px;
+
+    box-shadow:
+        0 0 30px gold;
+}
+
+.puzzle h2{
+    letter-spacing:15px;
+}
+
+input{
+    width:250px;
+
+    padding:15px;
+
+    font-size:20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    margin-top:20px;
+}
+
+button{
+    margin-top:20px;
+}
+
+@media(max-width:700px){
+
+    .ai{
+        width:150px;
+        height:150px;
+        font-size:70px;
+    }
+
+    .puzzle h2{
+        letter-spacing:5px;
+        font-size:1.3rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+    <h1>
+        LEVEL 2
+    </h1>
+
+    <h2>
+        Security Terminal
+    </h2>
+
+    <div class="ai">
+        🤖
+    </div>
+
+    <div class="dialogue">
+
+        NEXUS AI:
+        <br><br>
+
+        "Human detected.
+        Access denied.
+        Solve the security sequence
+        to proceed."
+
+    </div>
+
+    <div class="puzzle">
+
+        <h2>
+            1 1 2 3 5 8 ?
+        </h2>
+
+        <input
+            id="answer"
+            type="number"
+            placeholder="Answer">
+
+        <br>
+
+        <button onclick="checkAnswer()">
+            DECRYPT
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+Created by Kaashvi Agarwal
+</footer>
+
+<script>
+function checkAnswer(){
+
+    const answer=
+    document
+    .getElementById(
+        "answer"
+    )
+    .value;
+
+    if(answer=="13"){
+
+        alert(
+            "ACCESS GRANTED\n\n"+
+            "Level 3 unlocked."
+        );
+
+        window.location.href=
+        "level3.html";
+    }
+
+    else{
+
+        alert(
+            "ACCESS DENIED\n\n"+
+            "Incorrect sequence."
+        );
+    }
+}
+</script>
+
+</body>
+</html>
